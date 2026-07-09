@@ -129,6 +129,8 @@ h2{font-size:clamp(28px,4.2vw,40px);margin-bottom:10px}
 .t-y{background:#FEF0CE}.t-c{background:#FDE4D9}.t-g{background:#E9F3DD}
 /* footer */
 footer.site{background:var(--sky-top);color:var(--ink);padding:30px 0 38px;text-align:center;font-size:15px;margin-top:-1px}
+.foot-logo{display:inline-block;font-family:"Silkscreen","Press Start 2P",monospace;font-weight:700;font-size:18px;letter-spacing:2px;line-height:1;color:var(--coral);-webkit-user-select:none;user-select:none;margin-bottom:16px;text-shadow:0 1px 0 var(--coral-deep),0 2px 0 var(--coral-deep),0 3px 0 var(--coral-deep),-2px -2px 0 var(--ink),-2px -1px 0 var(--ink),-2px 0 0 var(--ink),-2px 1px 0 var(--ink),-2px 2px 0 var(--ink),-2px 3px 0 var(--ink),-2px 4px 0 var(--ink),-2px 5px 0 var(--ink),2px -2px 0 var(--ink),2px -1px 0 var(--ink),2px 0 0 var(--ink),2px 1px 0 var(--ink),2px 2px 0 var(--ink),2px 3px 0 var(--ink),2px 4px 0 var(--ink),2px 5px 0 var(--ink),-1px -2px 0 var(--ink),0 -2px 0 var(--ink),1px -2px 0 var(--ink),-1px 4px 0 var(--ink),0 4px 0 var(--ink),1px 4px 0 var(--ink),-1px 5px 0 var(--ink),0 5px 0 var(--ink),1px 5px 0 var(--ink)}
+.foot-logo .c,.foot-logo .g{display:inline-block}
 .foot-links{margin-top:12px;display:flex;gap:24px;justify-content:center}
 .foot-links a{color:var(--ink);text-decoration:none;font-weight:600;opacity:.85;padding:4px 2px}
 .foot-links a:hover{opacity:1;text-decoration:underline}
@@ -328,7 +330,8 @@ html{scroll-behavior:auto}
 
 <footer class="site">
   <div class="wrap">
-    <p><strong>CalGrind.</strong> No shame, by design.</p>
+    <div class="foot-logo"><span class="c">Cal</span><span class="g">Grind</span></div>
+    <p>No shame, by design.</p>
     <nav class="foot-links" aria-label="Footer">
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
