@@ -23,6 +23,7 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" as="image" href="zuri-welcome.webp" imagesrcset="zuri-welcome.webp 1x, zuri-welcome@2x.webp 2x" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="zuri-loader.png" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Inter:wght@400;600&family=Silkscreen:wght@700&display=swap">
@@ -162,8 +163,24 @@ form.wait input[type=email]{flex:1 1 100%;width:100%}
 .cl1{left:-44px;width:190px}
 .cl3{right:-30px}
 }
+/* loading screen */
+#loader{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:var(--sky-top);transition:opacity .5s ease}
+#loader.hide{opacity:0;pointer-events:none}
+#loader img{width:auto;height:200px;display:block}
+.ld{position:relative;width:74px;height:36px}
+.ld .d{position:absolute;bottom:4px;width:11px;height:11px;border-radius:50%;background:var(--ink);transform-origin:50% 100%}
+.ld .d1{left:8px;animation:ldip1 1.8s ease-in-out infinite}
+.ld .d2{left:32px;animation:ldip2 1.8s ease-in-out infinite}
+.ld .d3{left:56px;animation:ldip3 1.8s ease-in-out infinite}
+.ld .ball{position:absolute;bottom:15px;left:8px;width:11px;height:11px;border-radius:50%;background:var(--coral);animation:lball 1.8s ease-in-out infinite}
+@keyframes lball{0%{transform:translate(0,7px)}12.5%{transform:translate(12px,-20px)}25%{transform:translate(24px,7px)}37.5%{transform:translate(36px,-20px)}50%{transform:translate(48px,7px)}62.5%{transform:translate(36px,-20px)}75%{transform:translate(24px,7px)}87.5%{transform:translate(12px,-20px)}100%{transform:translate(0,7px)}}
+@keyframes ldip1{0%{transform:translateY(4px) scaleY(.62)}9%,91%{transform:none}100%{transform:translateY(4px) scaleY(.62)}}
+@keyframes ldip2{0%,17%{transform:none}25%{transform:translateY(4px) scaleY(.62)}34%,66%{transform:none}75%{transform:translateY(4px) scaleY(.62)}84%,100%{transform:none}}
+@keyframes ldip3{0%,42%{transform:none}50%{transform:translateY(4px) scaleY(.62)}59%,100%{transform:none}}
 @media (prefers-reduced-motion:reduce){
 html{scroll-behavior:auto}
+.ld .ball,.ld .d{animation:none}
+#loader{transition:none}
 .rise.in,.cl,.demo,.xptoast.show,.xptoast.hide,.cnp,.swy{animation:none}
 .rise{opacity:1}
 .btn,.demo,.tile,.icobox,.logo span,form.wait input[type=email]{transition:none}
@@ -174,6 +191,15 @@ html{scroll-behavior:auto}
 <noscript><style>.rise{opacity:1}</style></noscript>
 </head>
 <body>
+<div id="loader" aria-hidden="true"><img src="zuri-loader.png" width="420" height="420" alt=""><div class="ld"><span class="d d1"></span><span class="d d2"></span><span class="d d3"></span><span class="ball"></span></div></div>
+<script>
+(function(){
+  var l=document.getElementById("loader");if(!l)return;
+  var MIN=1400,t0=Date.now();
+  function hide(){setTimeout(function(){l.classList.add("hide");setTimeout(function(){if(l.parentNode)l.parentNode.removeChild(l);},550);},Math.max(0,MIN-(Date.now()-t0)));}
+  if(document.readyState==="complete")hide();else window.addEventListener("load",hide);
+})();
+</script>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site" id="top">
@@ -286,7 +312,7 @@ html{scroll-behavior:auto}
 <section class="game" aria-labelledby="game-h">
   <div class="wrap">
     <div class="head">
-      <h2 id="game-h" class="rise">Here comes the fun part</h2>
+      <h2 id="game-h" class="rise">Now for the fun part</h2>
       <p class="lede rise">CalGrind turns showing up into things you can watch grow: your streak, your league rank, and your pick out of twelve Grindlings.</p>
     </div>
     <div class="grid6">
