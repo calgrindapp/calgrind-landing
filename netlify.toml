@@ -1,0 +1,4 @@
+# CalGrind landing — static site, no build step.
+# Files are served from the repo root; security/cache headers live in ./_headers.
+[build]
+  publish = "."

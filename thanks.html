@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One tap to go. CalGrind</title>
+<meta name="description" content="Almost there. Check your inbox to confirm your spot on the CalGrind waitlist.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#9AD4F0">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Inter:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Inter:wght@400;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Inter:wght@400;600&display=swap"></noscript>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{color:#3E2C1E;font:400 17px/1.6 Inter,system-ui,sans-serif;min-height:100svh;display:grid;place-items:center;padding:24px 24px 130px;text-align:center;background:linear-gradient(180deg,#9AD4F0 0%,#8CCDEC 46%,#7CC4E6 100%)}
+h1{font:700 clamp(30px,6vw,44px)/1.15 "Baloo 2",sans-serif;margin:22px 0 10px}
+p{max-width:32em;margin:0 auto}
+.stage{position:relative;width:min(200px,50vw);margin:0 auto}
+.stage picture{display:contents}
+.stage img{width:100%;height:auto;display:block}
+.glow{position:absolute;inset:-12% -18%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.5),transparent 68%);z-index:-1}
+.shadow{position:absolute;left:50%;bottom:-4px;width:66%;height:16px;translate:-50% 0;background:radial-gradient(50% 50%,rgba(62,44,30,.32),transparent 72%)}
+a{display:inline-block;margin-top:26px;font:700 18px "Baloo 2",sans-serif;color:#3E2C1E;background:#FF6A3D;border-radius:16px;padding:14px 28px;text-decoration:none;transition:transform .15s ease-out,box-shadow .15s ease-out}
+a:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(216,74,20,.32)}
+a:active{transform:translateY(0) scale(.99);box-shadow:0 2px 6px rgba(216,74,20,.26)}
+:focus-visible{outline:3px solid #3E2C1E;outline-offset:3px}
+.land{position:fixed;left:0;right:0;bottom:0;height:110px;z-index:-1;pointer-events:none}
+.land svg{display:block;width:100%;height:100%}
+@media (prefers-reduced-motion:reduce){a{transition:none}}
+</style>
+</head>
+<body>
+<main>
+  <div class="stage">
+    <div class="glow" aria-hidden="true"></div>
+    <picture><source type="image/webp" srcset="zuri-welcome.webp 1x, zuri-welcome@2x.webp 2x"><img src="zuri-welcome.png" srcset="zuri-welcome.png 1x, zuri-welcome@2x.png 2x" width="320" height="512" alt="Zuri, a small cartoon giraffe with brown spots, waving hello."></picture>
+    <div class="shadow" aria-hidden="true"></div>
+  </div>
+  <h1>One tap to go.</h1>
+  <p>We just sent you a confirmation link. Tap it and Zuri will hold your spot with both hooves. After that, you will be first to know the moment CalGrind is ready.</p>
+  <a href="/">Back to the savanna</a>
+</main>
+<div class="land" aria-hidden="true">
+  <svg viewBox="0 0 1440 110" preserveAspectRatio="none">
+    <path d="M0 110 L0 42 Q 260 12 560 34 T 1080 28 T 1440 38 L1440 110 Z" fill="#F4BE52"/>
+    <path d="M0 110 L0 72 Q 340 46 720 62 T 1440 56 L1440 110 Z" fill="#EDB244"/>
+    <ellipse cx="248" cy="58" rx="5" ry="14" fill="#E19A2E"/>
+    <ellipse cx="256" cy="56" rx="5" ry="17" fill="#E7A437"/>
+    <ellipse cx="264" cy="58" rx="5" ry="13" fill="#E19A2E"/>
+    <ellipse cx="1152" cy="52" rx="5" ry="14" fill="#E19A2E"/>
+    <ellipse cx="1160" cy="50" rx="5" ry="16" fill="#E7A437"/>
+    <ellipse cx="1168" cy="52" rx="5" ry="12" fill="#E19A2E"/>
+  </svg>
+</div>
+</body>
+</html>
