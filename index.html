@@ -31,7 +31,7 @@
 <style>
 :root{--cream:#FBF5E9;--ink:#3E2C1E;--coral:#FF6A3D;--coral-deep:#B8420E;--yellow:#FBC04D;--green:#6FB23C;--card:#FFFDF6;--line:rgba(62,44,30,.18);--muted:#6B5B4C;--sand-1:#FCF1D8;--earth:#6E441C;--sky-top:#9AD4F0;--sky-low:#7CC4E6;--hz:clamp(230px,30vw,420px);--dune-h:clamp(34px,5vw,64px);--soft:0 6px 18px rgba(62,44,30,.10),0 2px 5px rgba(62,44,30,.05);--soft-lg:0 14px 30px rgba(62,44,30,.14),0 4px 10px rgba(62,44,30,.07)}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;overscroll-behavior:none}
+html{scroll-behavior:smooth;overscroll-behavior:none;background:var(--sky-top)}
 body{color:var(--ink);font:400 17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:var(--sand-1)}
 h1,h2,h3{font-family:"Baloo 2",Inter,sans-serif;line-height:1.12;text-wrap:balance}
 img{max-width:100%;height:auto;display:block}
@@ -152,7 +152,7 @@ footer.site{background:var(--earth);color:var(--cream);padding:30px 0 38px;text-
 @media (max-width:760px){.hero{padding-top:14px}.hero .wrap{grid-template-columns:1fr;gap:22px}.zuri{width:min(225px,58vw)}.cl2{left:56%}.cl4{display:none}.horizon{height:calc(var(--hz) + 60px)}.zone{margin-bottom:calc(var(--hz)*-1.2)}.demo{margin-top:8px}.sub{margin:14px 0 24px;font-size:18.5px}}
 @media (max-width:540px){
 .grid6{grid-template-columns:1fr;gap:14px}
-form.wait input[type=email],.btn{flex:1 1 100%;width:100%}
+form.wait input[type=email]{flex:1 1 100%;width:100%}
 .grid6 .tile:nth-child(n){translate:none;rotate:none}
 .tile{padding:22px 20px}
 .lede{margin-bottom:26px}
