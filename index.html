@@ -31,7 +31,7 @@
 <style>
 :root{--cream:#FBF5E9;--ink:#3E2C1E;--coral:#FF6A3D;--coral-deep:#B8420E;--yellow:#FBC04D;--green:#6FB23C;--card:#FFFDF6;--line:rgba(62,44,30,.18);--muted:#6B5B4C;--sand-1:#FCF1D8;--earth:#6E441C;--sky-top:#9AD4F0;--sky-low:#7CC4E6;--hz:clamp(230px,30vw,420px);--dune-h:clamp(34px,5vw,64px);--soft:0 6px 18px rgba(62,44,30,.10),0 2px 5px rgba(62,44,30,.05);--soft-lg:0 14px 30px rgba(62,44,30,.14),0 4px 10px rgba(62,44,30,.07)}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overscroll-behavior:none}
 body{color:var(--ink);font:400 17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:var(--sand-1)}
 h1,h2,h3{font-family:"Baloo 2",Inter,sans-serif;line-height:1.12;text-wrap:balance}
 img{max-width:100%;height:auto;display:block}
@@ -90,11 +90,12 @@ h1{font-size:clamp(38px,5.9vw,60px);font-weight:700}
 .xptoast.hide{animation:xptoastOut .3s ease-in forwards}
 @keyframes xptoastIn{from{opacity:0;transform:translate(-50%,16px) scale(.8)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
 @keyframes xptoastOut{from{opacity:1;transform:translate(-50%,0) scale(1)}to{opacity:0;transform:translate(-50%,-10px) scale(.96)}}
-.demo{margin:18px auto 0;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;font:700 16px "Baloo 2",sans-serif;color:var(--ink);background:var(--card);border:0;border-radius:14px;box-shadow:var(--soft);cursor:pointer;transition:transform .15s ease-out,box-shadow .15s ease-out;animation:beckon 5s ease-in-out 2.5s infinite}
-@keyframes beckon{0%,86%,100%{transform:none}89%{transform:translateY(-4px) rotate(-2deg)}93%{transform:translateY(0) rotate(2deg)}96%{transform:translateY(-2px) rotate(0deg)}}
-.demo svg{width:19px;height:19px;stroke:var(--ink);stroke-width:2;fill:none;stroke-linecap:round}
-.demo:hover{transform:translateY(-1px);box-shadow:var(--soft-lg);animation:none}
-.demo:active{transform:translateY(0) scale(.99);box-shadow:var(--soft)}
+.demo{margin:18px auto 0;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;font:700 16px "Baloo 2",sans-serif;color:var(--ink);background:var(--card);border:0;border-radius:14px;cursor:pointer;transition:transform .15s ease-out}
+.demo svg{width:19px;height:19px;stroke:var(--ink);stroke-width:2;fill:none;stroke-linecap:round;transform-origin:center}
+.demo:hover{transform:translateY(-1px)}
+.demo:active{transform:translateY(0) scale(.99)}
+.demo svg.spin{animation:demospin .6s ease-out}
+@keyframes demospin{to{transform:rotate(360deg)}}
 /* forms */
 form.wait{display:flex;gap:12px;flex-wrap:wrap;max-width:500px}
 form.wait input[type=email]{flex:1 1 230px;min-height:54px;padding:0 18px;font:400 17px Inter,sans-serif;color:var(--ink);background:#fff;border:1.5px solid rgba(62,44,30,.15);border-radius:16px;transition:border-color .15s ease-out,box-shadow .15s ease-out}
@@ -103,6 +104,8 @@ form.wait input[type=email]:focus{border-color:var(--coral-deep);box-shadow:0 0 
 .btn{min-height:54px;padding:0 28px;font:700 18px "Baloo 2",sans-serif;color:var(--ink);background:var(--coral);border:0;border-radius:16px;cursor:pointer;transition:transform .15s ease-out,box-shadow .15s ease-out}
 .btn:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(150,60,10,.4)}
 .btn:active{transform:translateY(0) scale(.99);box-shadow:0 2px 6px rgba(150,60,10,.3)}
+.totop-wrap{text-align:center;margin-top:44px}
+.totop{display:inline-flex;align-items:center;text-decoration:none}
 .hp{position:absolute;left:-9999px;height:0;overflow:hidden}
 /* ================= GAME SECTION ================= */
 .dune{display:block;width:100%;height:var(--dune-h);margin-top:52px}
@@ -171,7 +174,7 @@ html{scroll-behavior:auto}
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="site">
+<header class="site" id="top">
   <div class="wrap">
     <div class="logo rise"><span class="c">Cal</span><span class="g">Grind</span></div>
   </div>
@@ -316,6 +319,7 @@ html{scroll-behavior:auto}
         <p>Meals, calories, and weight live on your phone and nowhere else. Export or delete the lot whenever you like.</p>
       </div>
     </div>
+    <div class="totop-wrap rise"><a class="btn totop" href="#top">Back to the top</a></div>
   </div>
   <svg class="dune" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="#6E441C" d="M0 70 L0 38 Q 240 6 560 30 T 1080 26 T 1440 34 L1440 70 Z"/></svg>
 </section>
@@ -374,7 +378,12 @@ html{scroll-behavior:auto}
     setTimeout(function(){live.textContent="You earned 10 Grind XP."},80);
   }
   breathe.addEventListener("animationend",function(e){if(e.animationName==="hop")breathe.style.animation="";});
-  demo.addEventListener("click",celebrate);
+  var demoIcon=demo.querySelector("svg");
+  if(demoIcon){demoIcon.addEventListener("animationend",function(){demoIcon.classList.remove("spin");});}
+  demo.addEventListener("click",function(){
+    if(!reduced&&demoIcon){demoIcon.classList.remove("spin");void demoIcon.offsetWidth;demoIcon.classList.add("spin");}
+    celebrate();
+  });
   document.querySelector(".zuri").addEventListener("click",celebrate);
 
   if(reduced||!("IntersectionObserver" in window)){
@@ -382,7 +391,7 @@ html{scroll-behavior:auto}
   }else{
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
-    },{threshold:.15});
+    },{threshold:.12});
     els.forEach(function(e){io.observe(e)});
   }
 })();

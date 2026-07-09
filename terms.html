@@ -18,16 +18,19 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Inter:wght@400;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Inter:wght@400;600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Inter:wght@400;600&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Inter:wght@400;600&family=Silkscreen:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Inter:wght@400;600&family=Silkscreen:wght@700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Inter:wght@400;600&family=Silkscreen:wght@700&display=swap"></noscript>
+<noscript><style>.reveal>*{opacity:1}</style></noscript>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+html{overscroll-behavior:none}
 body{color:#3E2C1E;background:#FBF5E9;font:400 17px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 .wrap{max-width:720px;margin:0 auto;padding:0 22px}
 header{padding:26px 0}
-.logo{font-family:"Baloo 2",sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em;color:#3E2C1E;text-decoration:none}
-.logo span{color:#B8420E}
+.logo{display:inline-block;font-family:"Silkscreen","Press Start 2P",monospace;font-weight:700;font-size:clamp(20px,3vw,26px);letter-spacing:3px;line-height:1;color:#FF6A3D;text-decoration:none;cursor:pointer;-webkit-user-select:none;user-select:none;text-shadow:0 1px 0 #B8420E,0 2px 0 #B8420E,0 3px 0 #B8420E,0 4px 0 #B8420E,0 5px 0 #B8420E,0 6px 0 #B8420E,-3px -3px 0 #3E2C1E,-3px -2px 0 #3E2C1E,-3px -1px 0 #3E2C1E,-3px 0 0 #3E2C1E,-3px 1px 0 #3E2C1E,-3px 2px 0 #3E2C1E,-3px 3px 0 #3E2C1E,-3px 4px 0 #3E2C1E,-3px 5px 0 #3E2C1E,-3px 6px 0 #3E2C1E,-3px 7px 0 #3E2C1E,-3px 8px 0 #3E2C1E,-3px 9px 0 #3E2C1E,3px -3px 0 #3E2C1E,3px -2px 0 #3E2C1E,3px -1px 0 #3E2C1E,3px 0 0 #3E2C1E,3px 1px 0 #3E2C1E,3px 2px 0 #3E2C1E,3px 3px 0 #3E2C1E,3px 4px 0 #3E2C1E,3px 5px 0 #3E2C1E,3px 6px 0 #3E2C1E,3px 7px 0 #3E2C1E,3px 8px 0 #3E2C1E,3px 9px 0 #3E2C1E,-2px -3px 0 #3E2C1E,-1px -3px 0 #3E2C1E,0 -3px 0 #3E2C1E,1px -3px 0 #3E2C1E,2px -3px 0 #3E2C1E,-1px -2px 0 #3E2C1E,0 -2px 0 #3E2C1E,1px -2px 0 #3E2C1E,-2px 9px 0 #3E2C1E,-1px 9px 0 #3E2C1E,0 9px 0 #3E2C1E,1px 9px 0 #3E2C1E,2px 9px 0 #3E2C1E,-1px 8px 0 #3E2C1E,0 8px 0 #3E2C1E,1px 8px 0 #3E2C1E}
+.logo .c,.logo .g{display:inline-block;transition:translate .15s ease-out}
+.logo:hover .g{translate:0 -2px}
 main{padding:8px 0 60px}
 h1{font-family:"Baloo 2",sans-serif;font-size:clamp(30px,6vw,42px);line-height:1.15;margin-bottom:6px}
 .updated{color:#6B5B4C;font-size:15px;margin-bottom:30px}
@@ -35,16 +38,21 @@ h2{font-family:"Baloo 2",sans-serif;font-size:22px;margin:30px 0 8px}
 p{margin-bottom:14px}
 a{color:#B8420E}
 strong{font-weight:600}
-.back{display:inline-block;margin-top:34px;font-family:"Baloo 2",sans-serif;font-weight:700;color:#3E2C1E;background:#FF6A3D;border-radius:12px;box-shadow:0 4px 0 #D9531F;padding:11px 22px;text-decoration:none}
-.back:hover{transform:translateY(1px);box-shadow:0 3px 0 #D9531F}
+.back{display:inline-flex;align-items:center;margin-top:34px;min-height:54px;padding:0 28px;font:700 18px "Baloo 2",sans-serif;color:#3E2C1E;background:#FF6A3D;border:0;border-radius:16px;text-decoration:none;cursor:pointer;transition:transform .15s ease-out,box-shadow .15s ease-out}
+.back:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(150,60,10,.4)}
+.back:active{transform:translateY(0) scale(.99);box-shadow:0 2px 6px rgba(150,60,10,.3)}
 :focus-visible{outline:3px solid #3E2C1E;outline-offset:3px;border-radius:6px}
 footer{border-top:1px solid rgba(62,44,30,.14);padding:22px 0;color:#6B5B4C;font-size:14px}
+.reveal>*{opacity:0}
+.reveal>*.in{animation:riseIn .55s ease-out both}
+@keyframes riseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.reveal>*{opacity:1;animation:none}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><a class="logo" href="/">Cal<span>Grind</span></a></div></header>
+<header><div class="wrap"><a class="logo" href="/"><span class="c">Cal</span><span class="g">Grind</span></a></div></header>
 <main>
-  <div class="wrap">
+  <div class="wrap reveal">
     <h1>Terms of Use</h1>
     <p class="updated">Last updated: 8 July 2026</p>
 
@@ -84,5 +92,14 @@ footer{border-top:1px solid rgba(62,44,30,.14);padding:22px 0;color:#6B5B4C;font
   </div>
 </main>
 <footer><div class="wrap">CalGrind. No shame, by design.</div></footer>
+<script>
+(function(){
+  var reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var els=document.querySelectorAll(".reveal>*");
+  if(reduced||!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("in")});return;}
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
 </body>
 </html>
